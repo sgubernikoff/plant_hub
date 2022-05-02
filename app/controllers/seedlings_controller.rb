@@ -1,8 +1,10 @@
 class SeedlingsController < ApplicationController
 
+
     def create
         seedling = Seedling.create!(seedling_params)
-        render json: seedling, status: :created
+        plant = Plant.find(seedling.plant_id)
+        render json: plant, status: :created
     end
 
     private 

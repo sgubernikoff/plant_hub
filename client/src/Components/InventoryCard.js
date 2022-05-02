@@ -12,7 +12,10 @@ function InventoryCard({ plant, user, setUser, garden, setGarden }) {
     })
       .then((response) => response.json())
       .then((data) =>
-        setUser({ ...user, seedlings: [...user.seedlings, data] })
+        setUser({
+          ...user,
+          gardens: { plants: [...user.gardens[0].plants, data] },
+        })
       );
   }
   console.log(garden);
@@ -20,7 +23,7 @@ function InventoryCard({ plant, user, setUser, garden, setGarden }) {
 
   return (
     <div className="inv">
-      <img className="pic" src={plant.image} alt={plant.description} />
+      {/* <img className="pic" src={plant.image} alt={plant.description} /> */}
       <h3>{plant.name}</h3>
       <p>$ {plant.price}</p>
       <button onClick={addPlant} className="add-plant">
