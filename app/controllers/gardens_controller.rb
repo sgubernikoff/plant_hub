@@ -10,7 +10,7 @@ class GardensController < ApplicationController
 
     def show
         garden = Garden.find(params[:id])
-        render json: garden, include: :plants, status: :created
+        render json: garden, include: [:plants, :seedlings], status: :created
     end
 
     def create

@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2022_04_28_212353) do
   end
 
   create_table "seedlings", force: :cascade do |t|
-    t.bigint "garden_id", null: false
     t.bigint "plant_id", null: false
+    t.bigint "garden_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["garden_id"], name: "index_seedlings_on_garden_id"

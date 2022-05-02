@@ -14,11 +14,18 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 function App() {
   const [user, setUser] = useState(null);
   const [plants, setPlants] = useState([]);
+  const [garden, setGarden] = useState([]);
 
   function getPlants() {
     fetch("/plants")
       .then((res) => res.json())
       .then((plants) => setPlants(plants));
+  }
+
+  function getGarden() {
+    fetch("/gardens")
+      .then((res) => res.json())
+      .then((gardens) => setGarden(gardens));
   }
 
   function getUser() {
@@ -32,7 +39,10 @@ function App() {
   useEffect(() => {
     getUser();
     getPlants();
+    getGarden();
   }, []);
+
+  // console.log(user);
 
   return (
     <div className="App">
@@ -41,7 +51,13 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
-            <Inventory />
+            <Inventory
+              plants={plants}
+              setUser={setUser}
+              user={user}
+              garden={garden}
+              setGarden={setGarden}
+            />
             <MyGarden />
             <Features />
             <Explore />
