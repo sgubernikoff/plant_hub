@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
+        Garden.create(user:user, name: "#{user.name}'s Garden")
         render json: user, status: :created
     end
 

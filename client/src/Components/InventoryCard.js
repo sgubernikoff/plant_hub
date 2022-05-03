@@ -1,6 +1,17 @@
 import { React } from "react";
 
-function InventoryCard({ plant, user, setUser, garden, setGarden }) {
+function InventoryCard({ plant, user, setUser }) {
+  function updateUserGarden(newPlant) {
+    console.log(newPlant);
+    const updatedPlants = [...user.gardens[0].plants, newPlant];
+    console.log(updatedPlants);
+    setUser({
+      ...user,
+      gardens: [
+        (user.gardens[0] = { ...user.gardens[0], plants: updatedPlants }),
+      ],
+    });
+  }
   function addPlant() {
     fetch("/seedlings", {
       method: "POST",
@@ -11,21 +22,16 @@ function InventoryCard({ plant, user, setUser, garden, setGarden }) {
       }),
     })
       .then((response) => response.json())
-      .then((data) =>
-        setUser({
-          ...user,
-          gardens: { plants: [...user.gardens[0].plants, data] },
-        })
-      );
+      .then((data) => updateUserGarden(data));
   }
-  console.log(garden);
-  console.log(user);
 
   return (
     <div className="inv">
-      {/* <img className="pic" src={plant.image} alt={plant.description} /> */}
-      <h3>{plant.name}</h3>
-      <p>$ {plant.price}</p>
+      <h3 className="plant-name">
+        {plant.name} <br></br>
+        <p className="plant-price">${plant.price}</p>
+      </h3>
+      <img className="pic-plant" src={plant.image} alt={plant.description} />
       <button onClick={addPlant} className="add-plant">
         Add to Garden
       </button>

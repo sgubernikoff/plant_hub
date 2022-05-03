@@ -2,16 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 function Account({ user, onLogin }) {
-  //   const mapItems = user
-  //     ? user.items.map((item) => (
-  //         <div key={item.name} className="back">
-  //           <img src={item.image} alt="purchased item"></img>
-  //           <p className="account">{item.name}</p>
-  //           <p className="account">{item.price} 🪙</p>
-  //         </div>
-  //       ))
-  //     : null;
-
   let history = useHistory();
 
   function logOut() {
@@ -26,7 +16,7 @@ function Account({ user, onLogin }) {
   console.log(user);
 
   function deleteAccount() {
-    fetch("users/0", { method: "DELETE" }).then((r) => {
+    fetch(`users/${user.id}`, { method: "DELETE" }).then((r) => {
       if (r.ok) {
         onLogin(null);
         history.push("/");
@@ -38,12 +28,14 @@ function Account({ user, onLogin }) {
   if (!user) return null;
   return (
     <div className="logger">
-      <p className="account">{user.username}</p>
+      <h2 className="account">WELCOME, {user.username.toUpperCase()}!</h2>
+      <p className="planny">Plan the garden of your dreams TODAY!</p>
       <div className="accounto">
-        <button className="logout" onClick={logOut}>
+        <button className="account-button" onClick={logOut}>
           Log Out
         </button>
-        <button className="delete" onClick={deleteAccount}>
+        <button className="account-button">Edit Account</button>
+        <button className="account-button" onClick={deleteAccount}>
           Delete Account
         </button>
       </div>

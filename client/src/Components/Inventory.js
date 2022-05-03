@@ -14,8 +14,8 @@ function Inventory({ plants, setUser, user, garden, setGarden }) {
   ));
   return (
     <div id="inventory">
-      <h1> INVENTORY</h1>
-      {display}
+      <h1 className="inv-header">INVENTORY</h1>
+      <div className="inventory">{display}</div>
     </div>
   );
 }

@@ -51,16 +51,10 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
-            <Inventory
-              plants={plants}
-              setUser={setUser}
-              user={user}
-              garden={garden}
-              setGarden={setGarden}
-            />
-            <MyGarden />
+            <Inventory plants={plants} setUser={setUser} user={user} />
+            <MyGarden user={user} garden={garden} />
             <Features />
-            <Explore />
+            <Explore garden={garden} user={user} />
           </Route>
           <Route exact path="/signup">
             <Signup onLogin={setUser} />

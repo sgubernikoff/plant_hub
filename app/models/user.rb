@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :gardens
+    has_many :gardens, dependent: :destroy
     has_many :seedlings, through: :gardens
 
     has_secure_password
