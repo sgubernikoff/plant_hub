@@ -20,7 +20,7 @@ function NavBar({ isLoggedIn, user }) {
       <nav className="navbar">
         <Link
           activeClass="active"
-          to="home"
+          to="top"
           spy={true}
           smooth={true}
           offset={-70}

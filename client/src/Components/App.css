@@ -67,6 +67,11 @@ h1 {
   z-index: 1;
 }
 
+.bar {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 .navbar > a {
   display: inline-block;
   width: fit-content;
@@ -133,13 +138,12 @@ b {
 }
 
 .login-button {
-  width: 100px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 20px;
-  font-family: "Baskerville";
   border-radius: 8px;
-  color: #934e48;
+  border-color: green;
+  background-color: green;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
 }
 
 .logger,
@@ -192,6 +196,7 @@ b {
   background-color: green;
   font-weight: bold;
   cursor: pointer;
+  color: white;
 }
 
 .inventory {
@@ -210,6 +215,7 @@ b {
   background-color: green;
   font-weight: bold;
   cursor: pointer;
+  color: white;
 }
 
 .account {
@@ -225,37 +231,366 @@ b {
   width: 550px;
 }
 
-.garden-buttons {
+.container {
+  height: 50vh;
+  width: 100vw;
+  max-height: 800px;
+  max-width: 1280px;
+  min-height: 600px;
+  min-width: 1000px;
   display: flex;
-  margin: auto;
-  margin-left: 6px;
-  display: inline-block;
-  border-radius: 8px;
-  border-color: green;
-  background-color: green;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+.border {
+  height: 369px;
+  width: 290px;
+  background: transparent;
+  border-radius: 10px;
+  transition: border 1s;
+  position: relative;
+}
+.border:hover {
+  border: 1px solid white;
+}
+.card {
+  height: 379px;
+  width: 300px;
+  background: grey;
+  border-radius: 10px;
+  transition: background 0.8s;
+  overflow: hidden;
+  background: black;
+  box-shadow: 0px 0px 30px 7px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.card0 {
+  background: url("https://images.unsplash.com/photo-1626828804065-652534dfe7d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmVhdXRpZnVsJTIwZ2FyZGVufGVufDB8fDB8fA%3D%3D&w=1000&q=80")
+    center center no-repeat;
+  background-size: 300px;
+}
+.card:hover {
+  background: url("https://images.unsplash.com/photo-1626828804065-652534dfe7d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmVhdXRpZnVsJTIwZ2FyZGVufGVufDB8fDB8fA%3D%3D&w=1000&q=80")
+    left center no-repeat;
+  background-size: 600px;
+}
+
+.white-leaf {
+  opacity: 1;
+  color: white;
+  font-size: 40px;
   font-weight: bold;
-  cursor: pointer;
+}
+.fa {
+  opacity: 1;
 }
 
-.explorer {
-  margin-top: -100px;
+.icons {
+  position: absolute;
+  fill: #fff;
+  color: #fff;
+  height: 130px;
+  top: 226px;
+  width: 50px;
   display: flex;
-  width: 100%;
-  overflow: scroll;
-  margin-bottom: 50px;
-}
-
-.gard-image {
-  height: 300px;
-  width: auto;
-  margin-left: 15px;
-  margin-right: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .exp-header {
   margin-bottom: 75px;
 }
 
-.home-head {
-  margin-top: 75px;
+#home {
+  height: 2500px;
+  width: 1800px;
+  display: inline;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#home > .home-head {
+  margin-top: 10%;
+  width: 50%;
+  height: 50%;
+  margin-bottom: 10%;
+}
+#home > .home-header {
+  margin-top: 10%;
+  width: 50%;
+  height: 50%;
+  margin-bottom: 10%;
+}
+
+.hidden {
+  display: none;
+}
+
+/* .home-head2 {
+  position: fixed;
+  top: 41%;
+  left: 5%;
+  height: 225px;
+  width: 300px;
+}
+
+.home-head3 {
+  position: fixed;
+  top: 67%;
+  left: 5%;
+  height: 225px;
+  width: 300px;
+}
+
+.home-header {
+  position: fixed;
+  top: 15%;
+  left: 20%;
+  height: 225px;
+  width: 300px;
+}
+
+.home-header2 {
+  position: fixed;
+  top: 41%;
+  left: 20%;
+  height: 225px;
+  width: 300px;
+}
+
+.home-header3 {
+  position: fixed;
+  top: 67%;
+  left: 20%;
+  height: 225px;
+  width: 300px;
+}
+
+.home-heading {
+  position: fixed;
+  top: 15%;
+  left: 35%;
+  height: 225px;
+  width: 300px;
+}
+
+.home-heading2 {
+  position: fixed;
+  top: 41%;
+  left: 35%;
+  height: 225px;
+  width: 300px;
+}
+
+.home-heading3 {
+  position: fixed;
+  top: 67%;
+  left: 35%;
+  height: 225px;
+  width: 300px;
+} */
+
+.garden-5 {
+  margin: 0px;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: green;
+}
+/* * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+} */
+
+.garden-p {
+  font-size: 18px;
+  color: green;
+}
+
+.garden-buttons {
+  display: flex;
+  margin: auto;
+  display: inline-block;
+  border-radius: 8px;
+  border-color: green;
+  background-color: green;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  color: white;
+}
+
+.center {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* End Non-Essential  */
+
+.property-card {
+  height: 36em;
+  width: 28em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius: 16px;
+  overflow: hidden;
+  -webkit-box-shadow: 5px 5px 10px #e1e1e3, -5px -5px 10px #ffffff;
+  box-shadow: 5px 5px 10px #e1e1e3, -5px -5px 10px #ffffff;
+}
+/* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
+
+/* Top Half of card, image. */
+
+.property-image {
+  height: 12em;
+  width: 28em;
+  padding: 1em 2em;
+  position: Absolute;
+  top: 0px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image: url("https://static.onecms.io/wp-content/uploads/sites/37/2020/03/gaillardia-sage-shasta-daisy-07b15496.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* Bottom Card Section */
+
+.property-description {
+  background-color: #fafafc;
+  height: 24em;
+  width: 28em;
+  position: absolute;
+  bottom: 0em;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  text-align: center;
+}
+
+/* Property Cards Hover States */
+
+.property-card:hover .property-description {
+  height: 0em;
+  padding: 0px 1em;
+}
+.property-card:hover .property-image {
+  height: 36em;
+}
+
+.modal {
+  position: relative;
+  margin: auto;
+  z-index: 10;
+  width: 65%;
+  height: 650px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.modal_content {
+  background-color: #fdfdfd;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 2px solid #934e48;
+  opacity: 1;
+  z-index: 4;
+  overflow: scroll;
+}
+
+.close {
+  color: #934e48;
+  font-size: 18px;
+  padding: 5px;
+  z-index: 0;
+}
+
+.close:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.explorer {
+  margin-top: -100px;
+  display: flex;
+  overflow: scroll;
+  width: 100%;
+  height: 400px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 260px;
+  height: 260px;
+  border-radius: 10px;
+  overflow: scroll;
+  margin-left: 20px;
+  margin-right: 20px;
+  /* perspective: 1000px; */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.flip-card-front {
+  background-color: transparent;
+  color: black;
+  border-radius: 10px;
+}
+.flip-card-back {
+  background-color: #934e48;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+
+.gard-image {
+  display: flex;
+  justify-content: center;
+  height: 260px;
+  width: 260px;
+  border-radius: 10px;
 }
