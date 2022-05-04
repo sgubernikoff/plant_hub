@@ -7,7 +7,7 @@ function Explore({ garden, user }) {
     user && user.gardens[0].plants.length > 0
       ? garden.map((item) => (
           <div key={item.name}>
-            <h2>{item.name}</h2>
+            <h2 className="explore-garden-name">{item.name}</h2>
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">

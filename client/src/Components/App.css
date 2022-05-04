@@ -63,7 +63,7 @@ h1 {
   position: fixed;
   top: 0%;
   height: 75px;
-  color: #934e48;
+  color: #b33b30;
   z-index: 1;
 }
 
@@ -83,7 +83,7 @@ h1 {
 }
 .navbar > a :active {
   text-decoration: none;
-  color: #934e48;
+  color: #b33b30;
 }
 
 .navbar > a :visited {
@@ -94,13 +94,13 @@ h1 {
   height: 70px;
 }
 a {
-  color: #934e48;
+  color: #b33b30;
   text-decoration: none;
   cursor: pointer;
 }
 
 a :active {
-  color: #934e48;
+  color: #b33b30;
   text-decoration: none;
 }
 
@@ -130,7 +130,7 @@ b {
   font-size: 20px;
   margin-right: 4px;
   text-align: left;
-  color: #934e48;
+  color: #b33b30;
 }
 
 .login-button {
@@ -157,7 +157,7 @@ b {
 
 .inv {
   border: solid;
-  border-color: #934e48;
+  border-color: #b33b30;
   padding: 50px;
   box-shadow: 15px 15px 15px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -182,6 +182,7 @@ b {
 .plant-name {
   position: relative;
   margin-top: -8%;
+  color: #b33b30;
 }
 
 .plant-price {
@@ -219,11 +220,11 @@ b {
 }
 
 .account {
-  color: #934e48;
+  color: #b33b30;
 }
 
 .planny {
-  color: #934e48;
+  color: #b33b30;
   font-size: 20px;
 }
 
@@ -256,7 +257,7 @@ b {
 }
 .card {
   height: 379px;
-  width: 300px;
+  width: 270px;
   background: grey;
   border-radius: 10px;
   transition: background 0.8s;
@@ -307,94 +308,28 @@ b {
 }
 
 #home {
-  height: 2500px;
-  width: 1800px;
-  display: inline;
+  height: 100vh;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-#home > .home-head {
-  margin-top: 10%;
-  width: 50%;
-  height: 50%;
-  margin-bottom: 10%;
-}
-#home > .home-header {
-  margin-top: 10%;
-  width: 50%;
-  height: 50%;
-  margin-bottom: 10%;
+.home-head {
+  height: 100%;
+  width: 100%;
 }
 
-.hidden {
-  display: none;
+#my-garden {
+  margin-top: 5%;
 }
 
-/* .home-head2 {
-  position: fixed;
-  top: 41%;
-  left: 5%;
-  height: 225px;
-  width: 300px;
+#inventory {
+  margin-top: 5%;
 }
 
-.home-head3 {
-  position: fixed;
-  top: 67%;
-  left: 5%;
-  height: 225px;
-  width: 300px;
+#features {
+  margin-top: 5%;
 }
-
-.home-header {
-  position: fixed;
-  top: 15%;
-  left: 20%;
-  height: 225px;
-  width: 300px;
-}
-
-.home-header2 {
-  position: fixed;
-  top: 41%;
-  left: 20%;
-  height: 225px;
-  width: 300px;
-}
-
-.home-header3 {
-  position: fixed;
-  top: 67%;
-  left: 20%;
-  height: 225px;
-  width: 300px;
-}
-
-.home-heading {
-  position: fixed;
-  top: 15%;
-  left: 35%;
-  height: 225px;
-  width: 300px;
-}
-
-.home-heading2 {
-  position: fixed;
-  top: 41%;
-  left: 35%;
-  height: 225px;
-  width: 300px;
-}
-
-.home-heading3 {
-  position: fixed;
-  top: 67%;
-  left: 35%;
-  height: 225px;
-  width: 300px;
-} */
 
 .garden-5 {
   margin: 0px;
@@ -514,14 +449,14 @@ b {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  border: 2px solid #934e48;
+  border: 2px solid #b33b30;
   opacity: 1;
   z-index: 4;
   overflow: scroll;
 }
 
 .close {
-  color: #934e48;
+  color: #b33b30;
   font-size: 18px;
   padding: 5px;
   z-index: 0;
@@ -581,7 +516,7 @@ b {
   border-radius: 10px;
 }
 .flip-card-back {
-  background-color: #934e48;
+  background-color: #b33b30;
   color: white;
   transform: rotateY(180deg);
   border-radius: 10px;
@@ -593,4 +528,16 @@ b {
   height: 260px;
   width: 260px;
   border-radius: 10px;
+}
+
+.explore-garden-name {
+  color: #b33b30;
+}
+
+.please-login {
+  font-size: 36px;
+}
+
+.features-h2 {
+  color: #b33b30;
 }

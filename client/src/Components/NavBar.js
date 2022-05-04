@@ -9,7 +9,7 @@ const linkStyles = {
   margin: "0 .1% .1%",
   background: "transparent",
   textDecoration: "none",
-  color: "#934E48",
+  color: "#b33b30",
   fontSize: "20px",
   fontFamily: "Baskerville",
 };
@@ -30,16 +30,6 @@ function NavBar({ isLoggedIn, user }) {
         </Link>
         <Link
           activeClass="active"
-          to="inventory"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-        >
-          Inventory
-        </Link>
-        <Link
-          activeClass="active"
           to="my-garden"
           spy={true}
           smooth={true}
@@ -47,6 +37,16 @@ function NavBar({ isLoggedIn, user }) {
           duration={500}
         >
           My Garden
+        </Link>
+        <Link
+          activeClass="active"
+          to="inventory"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+        >
+          Inventory
         </Link>
         <a className="header" href="/">
           Little

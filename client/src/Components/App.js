@@ -51,8 +51,8 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
-            <Inventory plants={plants} setUser={setUser} user={user} />
             <MyGarden user={user} garden={garden} />
+            <Inventory plants={plants} setUser={setUser} user={user} />
             <Features />
             <Explore garden={garden} user={user} />
           </Route>

@@ -49,7 +49,11 @@ function MyGarden({ user, garden }) {
         <div className="my-garden">{mapGarden}</div>
       )}
       {user ? null : (
-        <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgyMDg0MTcxMzQwOTgxMzc5/gettyimages-1065711094sq.jpg"></img>
+        <div>
+          <h2 className="please-login">
+            Please <a href="/login">LOG IN</a> to view your garden!
+          </h2>
+        </div>
       )}
       {user ? (
         <div className="garden-butts">
