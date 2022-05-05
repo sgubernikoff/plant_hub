@@ -32,9 +32,15 @@ function InventoryCard({ plant, user, setUser }) {
         <p className="plant-price">${plant.price}</p>
       </h3>
       <img className="pic-plant" src={plant.image} alt={plant.description} />
-      <button onClick={addPlant} className="add-plant">
-        Add to Garden
-      </button>
+      {user ? (
+        <button onClick={addPlant} className="add-plant">
+          Add to Garden
+        </button>
+      ) : (
+        <p>
+          Please <a href="/login">LOG IN</a> to add your plant!
+        </p>
+      )}
     </div>
   );
 }

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :gardens
   resources :plants, only: [:index, :show, :create, :destroy]
   resources :sessions, only: [:create, :destroy]
+  resources :seedlings, only: [:index, :show, :create, :destroy]
   post "/seedlings", to:"seedlings#create"
   
   # Routing logic: fallback requests for React Router.

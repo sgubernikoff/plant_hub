@@ -15,6 +15,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [plants, setPlants] = useState([]);
   const [garden, setGarden] = useState([]);
+  const [seedlings, setSeedlings] = useState([]);
 
   function getPlants() {
     fetch("/plants")
@@ -26,6 +27,12 @@ function App() {
     fetch("/gardens")
       .then((res) => res.json())
       .then((gardens) => setGarden(gardens));
+  }
+
+  function getSeedlings() {
+    fetch("/seedlings")
+      .then((res) => res.json())
+      .then((seedling) => setSeedlings(seedling));
   }
 
   function getUser() {
@@ -40,9 +47,10 @@ function App() {
     getUser();
     getPlants();
     getGarden();
+    getSeedlings();
   }, []);
 
-  // console.log(user);
+  console.log(user);
 
   return (
     <div className="App">
@@ -51,7 +59,12 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
-            <MyGarden user={user} garden={garden} />
+            <MyGarden
+              user={user}
+              garden={garden}
+              seedlings={seedlings}
+              setUser={setUser}
+            />
             <Inventory plants={plants} setUser={setUser} user={user} />
             <Features />
             <Explore garden={garden} user={user} />

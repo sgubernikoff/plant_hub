@@ -21,8 +21,10 @@ class UsersController < ApplicationController
 
     def update
         user = User.find(session[:user_id])
-        user.update!(user_params)
-        render json: user
+        user.update!(name: params[:name], username: params[:username])
+        garden = Garden.find(params[:gardenId])
+        garden.update!(name: params[:gardenName])
+        render json: {user: user, garden: garden}
     end
 
     def destroy
@@ -36,6 +38,10 @@ class UsersController < ApplicationController
 
     def user_params
         params.permit(:name, :username, :password)
+    end
+
+    def user_update_params
+        params.permit(:name, :username)
     end
 
     def unprocessable_entity_response(invalid)

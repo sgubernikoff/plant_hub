@@ -1,14 +1,23 @@
 import { React, useEffect, useState } from "react";
 
-function MyGarden({ user, garden }) {
+function MyGarden({ user, garden, seedlings, setUser }) {
   const [popup, setPopup] = useState(false);
+
+  // console.log(seedlings);
+  // console.log(garden);
+  console.log(user);
 
   function togglePop() {
     setPopup(!popup);
   }
 
-  console.log(user);
-  console.log(popup);
+  function findSeedling(plant) {
+    const foundSeed = seedlings.find(
+      (a) => a.plant_id === plant.id && a.garden_id === user.gardens[0].id
+    );
+    return foundSeed.id;
+  }
+
   const mapGarden =
     user && user.gardens[0].plants.length > 0
       ? user.gardens.map((item) => (
@@ -27,10 +36,26 @@ function MyGarden({ user, garden }) {
   const mapPlants =
     user && user.gardens[0].plants.length > 0
       ? user.gardens[0].plants.map((item) => (
-          <div key={item.name}>
-            <p>{item.name}</p>
-            <p>{item.price}</p>
-            <img src={item.image}></img>
+          <div className="my-gard-card" key={item.id}>
+            <div className="item-hold">
+              <p className="item-name">{item.name}</p>
+              <p className="item-price">$ {item.price}</p>
+            </div>
+            <img className="pic" src={item.image}></img>
+            {/* <button
+              className="remove"
+              onClick={function handleDelete(event) {
+                event.stopPropagation();
+                fetch(`/seedlings/${findSeedling(item)}`, {
+                  method: "DELETE",
+                  headers: { "Content-Type": "application/json" },
+                }).then((r) => {
+                  if (r.ok) setUser();
+                });
+              }}
+            >
+              Remove Plant
+            </button> */}
           </div>
         ))
       : null;
@@ -42,7 +67,7 @@ function MyGarden({ user, garden }) {
         <div className="modal">
           <div className="modal_content" onClick={togglePop}>
             <p className="close">Click to Close</p>
-            <div>{mapPlants}</div>
+            <div className="centered-plants">{mapPlants}</div>
           </div>
         </div>
       ) : (
@@ -57,9 +82,16 @@ function MyGarden({ user, garden }) {
       )}
       {user ? (
         <div className="garden-butts">
-          <button className="garden-buttons">Add New Garden</button>
-          <button className="garden-buttons">Edit Garden</button>
-          <button className="garden-buttons">Delete Garden</button>
+          {user.gardens[0].plants[0] ? (
+            <div>
+              <button className="garden-buttons">Add New Garden</button>
+              <button className="garden-buttons">Clear Garden</button>{" "}
+            </div>
+          ) : (
+            <h2 className="my-garden-prompt">
+              Add a plant from Inventory to create your garden!
+            </h2>
+          )}
         </div>
       ) : null}
     </div>
