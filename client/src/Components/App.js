@@ -50,8 +50,6 @@ function App() {
     getSeedlings();
   }, []);
 
-  console.log(user);
-
   return (
     <div className="App">
       <Router>

@@ -488,7 +488,6 @@ b {
   width: 260px;
   height: 260px;
   border-radius: 10px;
-  overflow: scroll;
   margin-left: 20px;
   margin-right: 20px;
   /* perspective: 1000px; */
@@ -522,12 +521,14 @@ b {
   background-color: transparent;
   color: black;
   border-radius: 10px;
+  overflow: hidden;
 }
 .flip-card-back {
   background-color: #b33b30;
   color: white;
   transform: rotateY(180deg);
   border-radius: 10px;
+  overflow: scroll;
 }
 
 .gard-image {
@@ -629,3 +630,26 @@ label {
   width: fit-content;
   margin-top: 10px;
 }
+
+.small-garden-pic {
+  width: 25px;
+  margin-left: 10px;
+}
+
+.explore-div {
+  list-style: none;
+  margin-bottom: 1px;
+  font-size: 18px;
+}
+
+.explore-list:hover {
+  list-style: none;
+  margin-bottom: 1px;
+  font-size: 38px;
+}
+
+/* .explore-div:hover {
+  list-style: none;
+  margin-bottom: 1px;
+  image-orientation: 50px;
+} */

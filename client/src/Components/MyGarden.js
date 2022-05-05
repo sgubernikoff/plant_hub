@@ -5,7 +5,7 @@ function MyGarden({ user, garden, seedlings, setUser }) {
 
   // console.log(seedlings);
   // console.log(garden);
-  console.log(user);
+  // console.log(user);
 
   function togglePop() {
     setPopup(!popup);
