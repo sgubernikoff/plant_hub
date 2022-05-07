@@ -40,12 +40,25 @@ function App() {
     const filteredGardens = garden.filter((g) => g.id !== updatedGarden.id);
     const updatedGardens = [...filteredGardens, updatedGarden];
     const sorted = updatedGardens.sort((a, b) => a.id - b.id);
+    console.log(sorted);
     setGarden(sorted);
   }
 
-  function updateGardensOnDeletePlant(deletedGarden) {
-    const filteredGardens = garden.filter((g) => g.id !== deletedGarden.id);
-    const updatedGardens = [...filteredGardens, deletedGarden];
+  function updateGardensOnDeletePlant(deletedSeedling) {
+    const foundGarden = garden.find((g) => deletedSeedling.garden_id === g.id);
+    const deletedPlant = foundGarden.plants.find(
+      (p) => p.id === deletedSeedling.plant_id
+    );
+    const index = foundGarden.plants.indexOf(deletedPlant);
+    foundGarden.plants.splice(index, 1);
+    // const firstHalf = foundGarden.plants.slice(0, index);
+    // const secondHalf = foundGarden.plants.slice(index + 1);
+    // const updatedGarden = {
+    //   ...foundGarden,
+    //   plants: [...firstHalf, ...secondHalf],
+    // };
+    const filteredGardens = garden.filter((g) => g.id !== foundGarden.id);
+    const updatedGardens = [...filteredGardens, foundGarden];
     const sorted = updatedGardens.sort((a, b) => a.id - b.id);
     setGarden(sorted);
   }
@@ -60,6 +73,12 @@ function App() {
     setSeedlings([...seedlings, newSeedling]);
   }
 
+  function updateSeedlingsOnDeletePlant(deletedSeedling) {
+    setSeedlings(seedlings.filter((s) => s.id !== deletedSeedling.id));
+  }
+
+  console.log(seedlings);
+
   function getUser() {
     fetch("/users/0").then((r) => {
       if (r.ok) {
@@ -71,22 +90,45 @@ function App() {
   function updateUserGardenOnAddPlant(newSeedling) {
     const plant = plants.find((p) => p.id === newSeedling.plant_id);
     const foundGarden = garden.find((g) => g.id === newSeedling.garden_id);
+    const updatedPlants = [...foundGarden.plants, plant];
+    const sortedPlants = updatedPlants.sort((a, b) => a.id - b.id);
     const updatedGarden = {
       ...foundGarden,
-      plants: [...foundGarden.plants, plant],
+      plants: sortedPlants,
     };
     setUser({
       ...user,
       gardens: [updatedGarden],
     });
+    console.log("plant", plant);
+    console.log("foundGarden", foundGarden);
+    console.log("updatedPlants", updatedPlants);
+    console.log("sortedPlants", sortedPlants);
+    console.log("updatedGarden", updatedGarden);
+    console.log("updatedUser", {
+      ...user,
+      gardens: [updatedGarden],
+    });
   }
 
-  function updateUserGardenOnDeletePlant(updatedGarden) {
-    const filteredGardens = user.gardens.filter(
-      (g) => g.id !== updatedGarden.id
+  function updateUserGardenOnDeletePlant(deletedSeedling) {
+    // const plant = plants.find((p) => p.id === deletedSeedling.plant_id);
+    const foundGarden = garden.find((g) => g.id === deletedSeedling.garden_id);
+    console.log(foundGarden);
+    const deletedPlant = foundGarden.plants.find(
+      (p) => p.id === deletedSeedling.plant_id
     );
-    const updatedGardens = [...filteredGardens, updatedGarden];
-    setUser({ ...user, gardens: updatedGardens });
+    const index = foundGarden.plants.indexOf(deletedPlant);
+    foundGarden.plants.splice(index, 0);
+    // const firstHalf = foundGarden.plants.slice(0, index);
+    // const secondHalf = foundGarden.plants.slice(index + 1);
+    // const updatedGarden = {
+    //   ...foundGarden,
+    //   plants: [...firstHalf, ...secondHalf],
+    // };
+    // const filteredGardens = user.gardens.filter((g) => g.id !== foundGarden.id);
+    // const updatedGardens = [...filteredGardens, foundGarden];
+    setUser({ ...user, gardens: [foundGarden] });
   }
 
   useEffect(() => {
@@ -109,6 +151,7 @@ function App() {
               seedlings={seedlings}
               updateUserGardenOnDeletePlant={updateUserGardenOnDeletePlant}
               updateGardensOnDeletePlant={updateGardensOnDeletePlant}
+              updateSeedlingsOnDeletePlant={updateSeedlingsOnDeletePlant}
             />
             <Inventory
               plants={plants}

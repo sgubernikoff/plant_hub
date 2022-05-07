@@ -18,7 +18,7 @@ class SeedlingsController < ApplicationController
         seedling = Seedling.find(params[:id])
         seedling.destroy
         garden = Garden.find(seedling.garden_id)
-        render json: garden
+        render json: seedling
     end
 
     private 

@@ -1,7 +1,7 @@
 import React from "react";
 
 function Explore({ garden, user }) {
-  // console.log(garden);
+  console.log(garden);
   // console.log(user.gardens[0].plants[0]);
   // console.log(Math.floor(Math.random() * garden[0].plants.length - 1));
   const mapGarden = garden.map((item) => (

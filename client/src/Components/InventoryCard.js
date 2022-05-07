@@ -19,8 +19,8 @@ function InventoryCard({
     })
       .then((response) => response.json())
       .then((data) => {
-        updateUserGardenOnAddPlant(data);
         updateGardensOnAddPlant(data);
+        updateUserGardenOnAddPlant(data);
         updateSeedlingsOnAddPlant(data);
       });
   }

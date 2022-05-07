@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function MyGarden({
   user,
@@ -6,18 +7,20 @@ function MyGarden({
   seedlings,
   updateUserGardenOnDeletePlant,
   updateGardensOnDeletePlant,
+  updateSeedlingsOnDeletePlant,
 }) {
   const [popup, setPopup] = useState(false);
 
   // console.log(seedlings);
   // console.log(garden);
-  // console.log(user);
+  console.log(user);
 
   function togglePop() {
     setPopup(!popup);
   }
 
   function findSeedling(plant) {
+    // console.log(user.gardens[0].plants);
     const foundSeed = seedlings.find(
       (a) => a.plant_id === plant.id && a.garden_id === user.gardens[0].id
     );
@@ -28,7 +31,7 @@ function MyGarden({
   const mapGarden =
     user && user.gardens[0].plants.length > 0
       ? user.gardens.map((item) => (
-          <div className="center" key={item.name}>
+          <div className="center" key={uuidv4()}>
             <div className="property-card">
               <div className="property-image" onClick={togglePop}></div>
               <div className="property-description">
@@ -40,10 +43,13 @@ function MyGarden({
         ))
       : null;
 
+  // console.log("myplants", user.gardens[0].plants);
+  // console.log("shit", user.gardens[0].plants);
   const mapPlants =
     user && user.gardens[0].plants.length > 0
       ? user.gardens[0].plants.map((item) => (
-          <div className="my-gard-card" key={item.id}>
+          // console.log(item)
+          <div className="my-gard-card" key={uuidv4()}>
             <div className="item-hold">
               <p className="item-name">{item.name}</p>
               <p className="item-price">$ {item.price}</p>
@@ -60,6 +66,7 @@ function MyGarden({
                   r.json().then((data) => {
                     updateUserGardenOnDeletePlant(data);
                     updateGardensOnDeletePlant(data);
+                    updateSeedlingsOnDeletePlant(data);
                   })
                 );
               }}
