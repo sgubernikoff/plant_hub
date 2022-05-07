@@ -11,14 +11,14 @@ class SeedlingsController < ApplicationController
 
     def create
         seedling = Seedling.create!(seedling_params)
-        plant = Plant.find(seedling.plant_id)
-        render json: plant, status: :created
+        render json: seedling, status: :created
     end
 
     def destroy
         seedling = Seedling.find(params[:id])
         seedling.destroy
-        head :no_content
+        garden = Garden.find(seedling.garden_id)
+        render json: garden
     end
 
     private 

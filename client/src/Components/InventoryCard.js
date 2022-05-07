@@ -1,17 +1,13 @@
 import { React } from "react";
 
-function InventoryCard({ plant, user, setUser }) {
-  function updateUserGarden(newPlant) {
-    console.log(newPlant);
-    const updatedPlants = [...user.gardens[0].plants, newPlant];
-    console.log(updatedPlants);
-    setUser({
-      ...user,
-      gardens: [
-        (user.gardens[0] = { ...user.gardens[0], plants: updatedPlants }),
-      ],
-    });
-  }
+function InventoryCard({
+  plant,
+  user,
+  setUser,
+  updateGardensOnAddPlant,
+  updateUserGardenOnAddPlant,
+  updateSeedlingsOnAddPlant,
+}) {
   function addPlant() {
     fetch("/seedlings", {
       method: "POST",
@@ -22,7 +18,11 @@ function InventoryCard({ plant, user, setUser }) {
       }),
     })
       .then((response) => response.json())
-      .then((data) => updateUserGarden(data));
+      .then((data) => {
+        updateUserGardenOnAddPlant(data);
+        updateGardensOnAddPlant(data);
+        updateSeedlingsOnAddPlant(data);
+      });
   }
 
   return (

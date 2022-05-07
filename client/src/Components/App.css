@@ -459,6 +459,8 @@ b {
   z-index: 4;
   overflow: scroll;
   background-image: url("https://i.pinimg.com/736x/65/b0/77/65b07747fcedbc496e6ce7bba0524012--wallpaper-borders-wallpaper-ideas.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .close {
@@ -642,14 +644,13 @@ label {
   font-size: 18px;
 }
 
-.explore-list:hover {
-  list-style: none;
-  margin-bottom: 1px;
-  font-size: 38px;
-}
-
 /* .explore-div:hover {
   list-style: none;
   margin-bottom: 1px;
   image-orientation: 50px;
 } */
+
+.cart-img {
+  height: 18px;
+  display: inline;
+}

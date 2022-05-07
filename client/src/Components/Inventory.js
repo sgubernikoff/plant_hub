@@ -1,7 +1,16 @@
 import React from "react";
 import InventoryCard from "./InventoryCard.js";
 
-function Inventory({ plants, setUser, user, garden, setGarden }) {
+function Inventory({
+  plants,
+  setUser,
+  user,
+  garden,
+  setGarden,
+  updateGardensOnAddPlant,
+  updateUserGardenOnAddPlant,
+  updateSeedlingsOnAddPlant,
+}) {
   const display = plants.map((plant) => (
     <InventoryCard
       key={plant.id}
@@ -10,6 +19,9 @@ function Inventory({ plants, setUser, user, garden, setGarden }) {
       setUser={setUser}
       garden={garden}
       setGarden={setGarden}
+      updateGardensOnAddPlant={updateGardensOnAddPlant}
+      updateUserGardenOnAddPlant={updateUserGardenOnAddPlant}
+      updateSeedlingsOnAddPlant={updateSeedlingsOnAddPlant}
     />
   ));
   return (

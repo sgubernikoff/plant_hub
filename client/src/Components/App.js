@@ -9,6 +9,7 @@ import Explore from "./Explore";
 import Signup from "../account/Signup";
 import Login from "../account/Login";
 import Account from "../account/Account";
+import Cart from "../account/Cart";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
@@ -29,10 +30,34 @@ function App() {
       .then((gardens) => setGarden(gardens));
   }
 
+  function updateGardensOnAddPlant(newSeedling) {
+    const plant = plants.find((p) => p.id === newSeedling.plant_id);
+    const foundGarden = garden.find((g) => g.id === newSeedling.garden_id);
+    const updatedGarden = {
+      ...foundGarden,
+      plants: [...foundGarden.plants, plant],
+    };
+    const filteredGardens = garden.filter((g) => g.id !== updatedGarden.id);
+    const updatedGardens = [...filteredGardens, updatedGarden];
+    const sorted = updatedGardens.sort((a, b) => a.id - b.id);
+    setGarden(sorted);
+  }
+
+  function updateGardensOnDeletePlant(deletedGarden) {
+    const filteredGardens = garden.filter((g) => g.id !== deletedGarden.id);
+    const updatedGardens = [...filteredGardens, deletedGarden];
+    const sorted = updatedGardens.sort((a, b) => a.id - b.id);
+    setGarden(sorted);
+  }
+
   function getSeedlings() {
     fetch("/seedlings")
       .then((res) => res.json())
       .then((seedling) => setSeedlings(seedling));
+  }
+
+  function updateSeedlingsOnAddPlant(newSeedling) {
+    setSeedlings([...seedlings, newSeedling]);
   }
 
   function getUser() {
@@ -41,6 +66,27 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
+  }
+
+  function updateUserGardenOnAddPlant(newSeedling) {
+    const plant = plants.find((p) => p.id === newSeedling.plant_id);
+    const foundGarden = garden.find((g) => g.id === newSeedling.garden_id);
+    const updatedGarden = {
+      ...foundGarden,
+      plants: [...foundGarden.plants, plant],
+    };
+    setUser({
+      ...user,
+      gardens: [updatedGarden],
+    });
+  }
+
+  function updateUserGardenOnDeletePlant(updatedGarden) {
+    const filteredGardens = user.gardens.filter(
+      (g) => g.id !== updatedGarden.id
+    );
+    const updatedGardens = [...filteredGardens, updatedGarden];
+    setUser({ ...user, gardens: updatedGardens });
   }
 
   useEffect(() => {
@@ -61,9 +107,17 @@ function App() {
               user={user}
               garden={garden}
               seedlings={seedlings}
-              setUser={setUser}
+              updateUserGardenOnDeletePlant={updateUserGardenOnDeletePlant}
+              updateGardensOnDeletePlant={updateGardensOnDeletePlant}
             />
-            <Inventory plants={plants} setUser={setUser} user={user} />
+            <Inventory
+              plants={plants}
+              setUser={setUser}
+              user={user}
+              updateGardensOnAddPlant={updateGardensOnAddPlant}
+              updateUserGardenOnAddPlant={updateUserGardenOnAddPlant}
+              updateSeedlingsOnAddPlant={updateSeedlingsOnAddPlant}
+            />
             <Features />
             <Explore garden={garden} user={user} />
           </Route>
@@ -75,6 +129,9 @@ function App() {
           </Route>
           <Route exact path="/account">
             <Account user={user} onLogin={setUser} />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
           </Route>
         </Switch>
       </Router>

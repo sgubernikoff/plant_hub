@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import flower from "./flower.gif";
 import { Link, animateScroll as scroll } from "react-scroll";
+import cart from "./cart.png";
 
 const linkStyles = {
   display: "inline-block",
@@ -87,6 +88,11 @@ function NavBar({ isLoggedIn, user }) {
           {" "}
           <p className="navvy">Account</p>{" "}
         </NavLink>
+        <a className="header" href="/cart">
+          <span>
+            <img className="cart-img" src={cart}></img>{" "}
+          </span>
+        </a>
         {/* <div className="home_points">
           {isLoggedIn ? (
             <p>🪙 {user.points}</p>

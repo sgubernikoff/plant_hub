@@ -3,6 +3,7 @@ import React from "react";
 function Explore({ garden, user }) {
   // console.log(garden);
   // console.log(user.gardens[0].plants[0]);
+  // console.log(Math.floor(Math.random() * garden[0].plants.length - 1));
   const mapGarden = garden.map((item) => (
     <div key={item.name}>
       {item.plants[0] ? (
@@ -13,7 +14,14 @@ function Explore({ garden, user }) {
           <div className="flip-card-inner">
             <div className="flip-card-front">
               {item.plants[0] ? (
-                <img className="gard-image" src={item.plants[0].image} />
+                <img
+                  className="gard-image"
+                  src={
+                    item.plants[
+                      Math.floor(Math.random() * (item.plants.length - 1))
+                    ].image
+                  }
+                />
               ) : null}
             </div>
             <div className="flip-card-back">

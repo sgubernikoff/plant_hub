@@ -1,6 +1,12 @@
 import { React, useEffect, useState } from "react";
 
-function MyGarden({ user, garden, seedlings, setUser }) {
+function MyGarden({
+  user,
+  garden,
+  seedlings,
+  updateUserGardenOnDeletePlant,
+  updateGardensOnDeletePlant,
+}) {
   const [popup, setPopup] = useState(false);
 
   // console.log(seedlings);
@@ -15,6 +21,7 @@ function MyGarden({ user, garden, seedlings, setUser }) {
     const foundSeed = seedlings.find(
       (a) => a.plant_id === plant.id && a.garden_id === user.gardens[0].id
     );
+    console.log(seedlings);
     return foundSeed.id;
   }
 
@@ -42,20 +49,23 @@ function MyGarden({ user, garden, seedlings, setUser }) {
               <p className="item-price">$ {item.price}</p>
             </div>
             <img className="pic" src={item.image}></img>
-            {/* <button
+            <button
               className="remove"
               onClick={function handleDelete(event) {
                 event.stopPropagation();
                 fetch(`/seedlings/${findSeedling(item)}`, {
                   method: "DELETE",
                   headers: { "Content-Type": "application/json" },
-                }).then((r) => {
-                  if (r.ok) setUser();
-                });
+                }).then((r) =>
+                  r.json().then((data) => {
+                    updateUserGardenOnDeletePlant(data);
+                    updateGardensOnDeletePlant(data);
+                  })
+                );
               }}
             >
               Remove Plant
-            </button> */}
+            </button>
           </div>
         ))
       : null;
@@ -84,7 +94,7 @@ function MyGarden({ user, garden, seedlings, setUser }) {
         <div className="garden-butts">
           {user.gardens[0].plants[0] ? (
             <div>
-              <button className="garden-buttons">Add New Garden</button>
+              <button className="garden-buttons">Add Garden to Cart</button>
               <button className="garden-buttons">Clear Garden</button>{" "}
             </div>
           ) : (
