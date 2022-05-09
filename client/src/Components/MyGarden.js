@@ -8,8 +8,11 @@ function MyGarden({
   updateUserGardenOnDeletePlant,
   updateGardensOnDeletePlant,
   updateSeedlingsOnDeletePlant,
+  updateUserGardenOnClearGarden,
+  updateGardensOnClearGarden,
 }) {
   const [popup, setPopup] = useState(false);
+  const [areYouSure, setAreYouSure] = useState(false);
 
   // console.log(seedlings);
   // console.log(garden);
@@ -19,6 +22,10 @@ function MyGarden({
     setPopup(!popup);
   }
 
+  function toggleSure() {
+    setAreYouSure(!areYouSure);
+  }
+
   function findSeedling(plant) {
     // console.log(user.gardens[0].plants);
     const foundSeed = seedlings.find(
@@ -26,6 +33,16 @@ function MyGarden({
     );
     console.log(seedlings);
     return foundSeed.id;
+  }
+
+  function clearGarden() {
+    toggleSure();
+    fetch(`/clear_seedlings/${user.id}`).then((r) =>
+      r.json().then((data) => {
+        updateUserGardenOnClearGarden();
+        updateGardensOnClearGarden();
+      })
+    );
   }
 
   const mapGarden =
@@ -82,8 +99,10 @@ function MyGarden({
       <h1>MY GARDEN</h1>
       {popup && user ? (
         <div className="modal">
-          <div className="modal_content" onClick={togglePop}>
-            <p className="close">Click to Close</p>
+          <div className="modal_content" onClick={!popup ? togglePop : null}>
+            <p className="close" onClick={popup ? togglePop : null}>
+              Click to Close
+            </p>
             <div className="centered-plants">{mapPlants}</div>
           </div>
         </div>
@@ -102,7 +121,25 @@ function MyGarden({
           {user.gardens[0].plants[0] ? (
             <div>
               <button className="garden-buttons">Add Garden to Cart</button>
-              <button className="garden-buttons">Clear Garden</button>{" "}
+              <button className="garden-buttons" onClick={toggleSure}>
+                Clear Garden
+              </button>{" "}
+              {areYouSure ? (
+                <div>
+                  <h2 className="sure">
+                    This will remove all flowers from your garden.
+                  </h2>
+                  <h2 className="sure">
+                    Are you sure you would like to clear your garden?
+                  </h2>
+                  <button className="garden-buttons" onClick={clearGarden}>
+                    Yes
+                  </button>
+                  <button className="garden-buttons" onClick={toggleSure}>
+                    No
+                  </button>
+                </div>
+              ) : null}
             </div>
           ) : (
             <h2 className="my-garden-prompt">

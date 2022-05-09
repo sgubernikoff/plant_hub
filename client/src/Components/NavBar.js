@@ -9,17 +9,21 @@ const linkStyles = {
   width: "100px",
   margin: "0 .1% .1%",
   background: "transparent",
-  textDecoration: "none",
   color: "#b33b30",
   fontSize: "20px",
   fontFamily: "Baskerville",
 };
+
+const accountWindow = window.location.href.includes("account")
+  ? "/"
+  : "inventory";
 
 function NavBar({ isLoggedIn, user }) {
   return (
     <div className="bar">
       <nav className="navbar">
         <Link
+          className="nav-element"
           activeClass="active"
           to="top"
           spy={true}
@@ -30,6 +34,7 @@ function NavBar({ isLoggedIn, user }) {
           Home
         </Link>
         <Link
+          className="nav-element"
           activeClass="active"
           to="my-garden"
           spy={true}
@@ -40,8 +45,9 @@ function NavBar({ isLoggedIn, user }) {
           My Garden
         </Link>
         <Link
+          className="nav-element"
           activeClass="active"
-          to="inventory"
+          to={accountWindow}
           spy={true}
           smooth={true}
           offset={-70}
@@ -57,6 +63,7 @@ function NavBar({ isLoggedIn, user }) {
           Leaf
         </a>
         <Link
+          className="nav-element"
           activeClass="active"
           to="features"
           spy={true}
@@ -67,6 +74,7 @@ function NavBar({ isLoggedIn, user }) {
           Features
         </Link>
         <Link
+          className="nav-element"
           activeClass="active"
           to="explore"
           spy={true}
@@ -80,9 +88,6 @@ function NavBar({ isLoggedIn, user }) {
           exact
           to={isLoggedIn ? "/account" : "/login"}
           style={linkStyles}
-          activeStyle={{
-            textDecoration: "none",
-          }}
           className="nav-element"
         >
           {" "}

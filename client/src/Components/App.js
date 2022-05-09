@@ -77,6 +77,17 @@ function App() {
     setSeedlings(seedlings.filter((s) => s.id !== deletedSeedling.id));
   }
 
+  function updateUserGardenOnClearGarden() {
+    const updatedGarden = { ...user.gardens[0], plants: [] };
+    setUser({ ...user, gardens: [updatedGarden] });
+  }
+
+  function updateGardensOnClearGarden() {
+    const updatedGarden = { ...user.gardens[0], plants: [] };
+    const filteredGardens = garden.filter((g) => g.id !== updatedGarden.id);
+    setGarden([...filteredGardens, updatedGarden]);
+  }
+
   console.log(seedlings);
 
   function getUser() {
@@ -128,7 +139,12 @@ function App() {
     // };
     // const filteredGardens = user.gardens.filter((g) => g.id !== foundGarden.id);
     // const updatedGardens = [...filteredGardens, foundGarden];
-    setUser({ ...user, gardens: [foundGarden] });
+    const sortedPlants = foundGarden.plants.sort((a, b) => a.id - b.id);
+    const updatedGarden = {
+      ...foundGarden,
+      plants: sortedPlants,
+    };
+    setUser({ ...user, gardens: [updatedGarden] });
   }
 
   useEffect(() => {
@@ -152,6 +168,8 @@ function App() {
               updateUserGardenOnDeletePlant={updateUserGardenOnDeletePlant}
               updateGardensOnDeletePlant={updateGardensOnDeletePlant}
               updateSeedlingsOnDeletePlant={updateSeedlingsOnDeletePlant}
+              updateUserGardenOnClearGarden={updateUserGardenOnClearGarden}
+              updateGardensOnClearGarden={updateGardensOnClearGarden}
             />
             <Inventory
               plants={plants}

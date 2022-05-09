@@ -9,6 +9,8 @@ function Account({ user, onLogin }) {
 
   let history = useHistory();
 
+  console.log(window.location.href.includes("account"));
+
   function logOut() {
     fetch("/sessions/0", { method: "DELETE" }).then((r) => {
       if (r.ok) {

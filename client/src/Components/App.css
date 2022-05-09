@@ -654,3 +654,11 @@ label {
   height: 18px;
   display: inline;
 }
+
+.nav-element:hover {
+  text-decoration: underline;
+}
+
+.sure {
+  color: #b33b30;
+}
