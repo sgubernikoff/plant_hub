@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import InventoryCard from "./InventoryCard.js";
 
 function Inventory({
@@ -11,7 +11,14 @@ function Inventory({
   updateUserGardenOnAddPlant,
   updateSeedlingsOnAddPlant,
 }) {
-  const display = plants.map((plant) => (
+  const [searchText, setSearchText] = useState("");
+
+  const searchResults = plants.filter((plant) => {
+    return plant.name.toLowerCase().includes(searchText.toLowerCase());
+  });
+  console.log(plants);
+  console.log(searchResults);
+  const display = searchResults.map((plant) => (
     <InventoryCard
       key={plant.id}
       plant={plant}
@@ -27,7 +34,16 @@ function Inventory({
   return (
     <div id="inventory">
       <h1 className="inv-header">INVENTORY</h1>
-      <div className="inventory">{display}</div>
+      <section>
+        <h3 className="searcher">Search For Your Favorite</h3>
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <div className="inventory">{display}</div>
+      </section>
     </div>
   );
 }

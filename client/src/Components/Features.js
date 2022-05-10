@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 
 function Features({
   weather,
@@ -7,6 +7,7 @@ function Features({
   miamiWeather,
   laWeather,
   botanyNews,
+  plants,
 }) {
   const [toggleWeather, setToggleWeather] = useState(false);
   const [toggleFeed, setToggleFeed] = useState(false);
@@ -14,12 +15,24 @@ function Features({
   const [toggleRandom, setToggleRandom] = useState(false);
   const [toggleFifth, setToggleFifth] = useState(false);
   const [tipsList, setTipsList] = useState(false);
+  const [plantOfDay, setPlantOfDay] = useState([]);
 
   console.log(botanyNews);
+  // console.log(plants[getRandomInt(0, 33)].image);
 
   function toggleList() {
     setTipsList(!tipsList);
   }
+
+  function getPlant() {
+    fetch(`/plants/${getRandomInt(0, 33)}`)
+      .then((res) => res.json())
+      .then((plants) => setPlantOfDay(plants));
+  }
+
+  useEffect(() => {
+    getPlant();
+  }, []);
 
   function toggle() {
     setToggleWeather(!toggleWeather);
@@ -66,6 +79,12 @@ function Features({
     setToggleFeed(false);
     setTipsList(false);
   }
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
   return (
     <div id="features">
       <h1> FEATURES</h1>
@@ -111,7 +130,7 @@ function Features({
       !toggleFifth ? (
         <a className="feature-list" onClick={toggle4}>
           {" "}
-          Random{" "}
+          Plant of the Day{" "}
         </a>
       ) : null}
       {!toggleWeather ? <br></br> : null}
@@ -357,8 +376,16 @@ function Features({
       ) : null}
 
       {toggleRandom ? (
-        <div>
-          <h3>Random</h3>
+        <div className="pod-div">
+          <div className="pod-content">
+            <div className="my-pod-card">
+              <h3 className="pod-name">Plant of the Day</h3>
+              <div className="pod">
+                <img className="pod-img" src={plantOfDay.image}></img>
+                <h3 className="pod-name">{plantOfDay.name}</h3>
+              </div>
+            </div>
+          </div>
           <button className="weather-button" onClick={toggleClose}>
             Close
           </button>
@@ -367,7 +394,7 @@ function Features({
 
       {toggleFifth ? (
         <div>
-          <h3>Fifth</h3>
+          Fifth
           <button className="weather-button" onClick={toggleClose}>
             Close
           </button>

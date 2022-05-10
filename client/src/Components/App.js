@@ -253,6 +253,7 @@ function App() {
               miamiWeather={miamiWeather}
               austinWeather={austinWeather}
               BotanyNews={BotanyNews}
+              plants={plants}
             />
             <Explore garden={garden} user={user} />
           </Route>

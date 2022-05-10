@@ -665,6 +665,7 @@ label {
 
 .feature-list {
   font-size: 28px;
+  font-weight: bold;
 }
 
 .feature-list > a {
@@ -678,6 +679,7 @@ label {
 .features-h2 {
   color: white;
   font-size: 20px;
+  margin: 15px;
 }
 .features-h {
   color: #b33b30;
@@ -719,8 +721,8 @@ label {
 }
 
 .flip-card-front-tips {
-  background-image: url("https://images.unsplash.com/photo-1598920710727-e6c74781538c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VuZmxvd2VyJTIwZmllbGR8ZW58MHx8MHx8&w=1000&q=80");
-  background-position: top;
+  background-image: url("https://st2.depositphotos.com/1000459/9835/i/950/depositphotos_98358268-stock-photo-sunflowers-field-on-sky.jpg");
+  background-size: cover;
   color: black;
   border-radius: 10px;
 }
@@ -751,7 +753,6 @@ label {
   transform: rotateY(180deg);
   border-radius: 10px;
   overflow: scroll;
-  padding: 5px;
 }
 
 .flip-card-tips:hover .flip-card-inner-tips {
@@ -766,6 +767,7 @@ label {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .tips-text {
@@ -815,4 +817,58 @@ label {
 
 .tips {
   margin: auto;
+}
+
+.pod-div {
+  margin-top: -225px;
+}
+
+.pod-img {
+  height: 350px;
+  border-radius: 10px;
+  opacity: 1;
+  z-index: 1;
+}
+
+.pod-name {
+  color: #b33b30;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.pod-content {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 800px;
+  height: 575px;
+  margin: auto;
+  opacity: 0.95;
+  border-radius: 10px;
+  border: 2px solid #b33b30;
+  background-image: url("https://i.pinimg.com/736x/65/b0/77/65b07747fcedbc496e6ce7bba0524012--wallpaper-borders-wallpaper-ideas.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.my-pod-card {
+  border: solid;
+  border-color: #b33b30;
+  margin-bottom: auto;
+  margin-top: auto;
+  text-align: center;
+  width: 650px;
+  height: 500px;
+  position: relative;
+  background-color: #e4eed0;
+  border-radius: 10px;
+}
+
+.search-bar {
+  width: 300px;
+  color: #b33b30;
+}
+
+.searcher {
+  color: #b33b30;
 }
