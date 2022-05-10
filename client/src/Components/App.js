@@ -17,11 +17,56 @@ function App() {
   const [plants, setPlants] = useState([]);
   const [garden, setGarden] = useState([]);
   const [seedlings, setSeedlings] = useState([]);
+  const [weather, setWeather] = useState([]);
+  const [upcomingWeather, setUpcomingWeather] = useState([]);
+  const [laWeather, setLaWeather] = useState([]);
+  const [miamiWeather, setMiamiWeather] = useState([]);
+  const [austinWeather, setAustinWeather] = useState([]);
 
   function getPlants() {
     fetch("/plants")
       .then((res) => res.json())
       .then((plants) => setPlants(plants));
+  }
+
+  function getAPI() {
+    fetch(
+      "http://api.weatherapi.com/v1/forecast.json?key=7a2d029ef2f44c28ae7191824220905&q=60611&days=3&aqi=no&alerts=no"
+    )
+      .then((res) => res.json())
+      .then((plants) => setWeather(plants));
+  }
+  function getAPI2() {
+    fetch(
+      "http://api.weatherapi.com/v1/forecast.json?key=7a2d029ef2f44c28ae7191824220905&q=11211&days=3&aqi=no&alerts=no"
+    )
+      .then((res) => res.json())
+      .then((plants) => setUpcomingWeather(plants));
+  }
+
+  console.log(miamiWeather);
+  function getAPI3() {
+    fetch(
+      "http://api.weatherapi.com/v1/forecast.json?key=7a2d029ef2f44c28ae7191824220905&q=94610&days=3&aqi=no&alerts=no"
+    )
+      .then((res) => res.json())
+      .then((plants) => setLaWeather(plants));
+  }
+
+  function getAPI4() {
+    fetch(
+      "http://api.weatherapi.com/v1/forecast.json?key=7a2d029ef2f44c28ae7191824220905&q=33109&days=3&aqi=no&alerts=no"
+    )
+      .then((res) => res.json())
+      .then((plants) => setMiamiWeather(plants));
+  }
+
+  function getAPI5() {
+    fetch(
+      "http://api.weatherapi.com/v1/forecast.json?key=7a2d029ef2f44c28ae7191824220905&q=78702&days=3&aqi=no&alerts=no"
+    )
+      .then((res) => res.json())
+      .then((plants) => setAustinWeather(plants));
   }
 
   function getGarden() {
@@ -147,11 +192,33 @@ function App() {
     setUser({ ...user, gardens: [updatedGarden] });
   }
 
+  function BotanyNews() {
+    useEffect(() => {
+      const anchor = document.createElement("a");
+      anchor.setAttribute("class", "twitter-timeline");
+      anchor.setAttribute("data-theme", "dark");
+      anchor.setAttribute("data-tweet-limit", "unlimited");
+      anchor.setAttribute("data-chrome", "noheader nofooter noborders");
+      anchor.setAttribute("data-height", "800");
+      anchor.setAttribute("data-width", "750");
+      anchor.setAttribute("href", "https://twitter.com/BoxingNewsED");
+      document.getElementsByClassName("twitter-embed")[0].appendChild(anchor);
+      const script = document.createElement("script");
+      script.setAttribute("src", "https://platform.twitter.com/widgets.js");
+      document.getElementsByClassName("twitter-embed")[0].appendChild(script);
+    }, []);
+  }
+
   useEffect(() => {
     getUser();
     getPlants();
     getGarden();
     getSeedlings();
+    getAPI();
+    getAPI2();
+    getAPI3();
+    getAPI4();
+    getAPI5();
   }, []);
 
   return (
@@ -179,7 +246,14 @@ function App() {
               updateUserGardenOnAddPlant={updateUserGardenOnAddPlant}
               updateSeedlingsOnAddPlant={updateSeedlingsOnAddPlant}
             />
-            <Features />
+            <Features
+              weather={weather}
+              brooklynWeather={upcomingWeather}
+              laWeather={laWeather}
+              miamiWeather={miamiWeather}
+              austinWeather={austinWeather}
+              BotanyNews={BotanyNews}
+            />
             <Explore garden={garden} user={user} />
           </Route>
           <Route exact path="/signup">

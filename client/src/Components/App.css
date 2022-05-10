@@ -662,3 +662,157 @@ label {
 .sure {
   color: #b33b30;
 }
+
+.feature-list {
+  font-size: 28px;
+}
+
+.feature-list > a {
+  font-size: 28px;
+}
+
+.feature-list:hover {
+  text-decoration: underline;
+}
+
+.features-h2 {
+  color: white;
+  font-size: 20px;
+}
+.features-h {
+  color: #b33b30;
+}
+
+.flip-card-weather {
+  margin: auto;
+  background-color: transparent;
+  width: 260px;
+  height: 260px;
+  border-radius: 10px;
+  margin-bottom: 100px;
+  margin-left: 45px;
+  margin-right: 45px;
+}
+
+.flip-card-weather:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.weather-button {
+  position: relative;
+  margin: auto;
+  border-radius: 8px;
+  border-color: green;
+  background-color: green;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  color: white;
+  width: 200px;
+}
+
+.tips-enter {
+  color: #b33b30;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: -100px;
+}
+
+.flip-card-front-tips {
+  background-image: url("https://images.unsplash.com/photo-1598920710727-e6c74781538c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3VuZmxvd2VyJTIwZmllbGR8ZW58MHx8MHx8&w=1000&q=80");
+  background-position: top;
+  color: black;
+  border-radius: 10px;
+}
+
+.flip-card-tips {
+  background-color: transparent;
+  width: 320px;
+  height: 320px;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+}
+
+.flip-card-inner-tips {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.flip-card-back-tips {
+  background-color: #b33b30;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+  overflow: scroll;
+  padding: 5px;
+}
+
+.flip-card-tips:hover .flip-card-inner-tips {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front-tips,
+.flip-card-back-tips {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.tips-text {
+  color: white;
+  font-size: 24px;
+}
+
+.tip-scroll {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+}
+
+.tips-button {
+  position: relative;
+  margin: auto;
+  border-radius: 8px;
+  border-color: green;
+  background-color: green;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+  color: white;
+  width: 200px;
+}
+
+#features {
+  display: block;
+}
+
+.big-tip {
+  display: flex;
+  overflow: scroll;
+  margin-top: -200px;
+}
+
+.big-weather {
+  display: flex;
+  overflow: scroll;
+}
+
+.weather-scroll {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+}
+
+.tips {
+  margin: auto;
+}
