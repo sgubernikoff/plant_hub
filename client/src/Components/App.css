@@ -473,7 +473,7 @@ b {
 }
 
 .close:hover {
-  color: red;
+  color: #b33b30;
   cursor: pointer;
 }
 
@@ -542,6 +542,7 @@ b {
 }
 
 .explore-garden-name {
+  font-weight: normal;
   color: #b33b30;
 }
 
@@ -549,8 +550,9 @@ b {
   font-size: 36px;
 }
 
-.features-h2 {
+.features-h {
   color: #b33b30;
+  font-weight: normal;
 }
 
 .my-gard-card {
@@ -587,11 +589,13 @@ b {
 .item-name {
   margin-top: 0px;
   font-size: larger;
+  color: #b33b30;
 }
 
 .item-price {
   margin-top: -13px;
   font-weight: normal;
+  color: #b33b30;
 }
 
 .pic {
@@ -620,6 +624,14 @@ label {
   color: white;
   width: fit-content;
   margin: auto;
+}
+
+.submit-account-form:active {
+  animation: gradient 140ms;
+  background: #b33b30;
+  color: #fff;
+  box-shadow: none;
+  border-color: #b33b30;
 }
 
 .remove {
@@ -661,19 +673,21 @@ label {
 
 .sure {
   color: #b33b30;
+  font-weight: normal;
 }
 
 .feature-list {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: normal;
 }
 
 .feature-list > a {
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .feature-list:hover {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .features-h2 {
@@ -711,6 +725,38 @@ label {
   margin-top: 10px;
   color: white;
   width: 200px;
+}
+
+.weather-button:active {
+  animation: gradient 140ms;
+  background: #b33b30;
+  color: #fff;
+  box-shadow: none;
+  border-color: #b33b30;
+}
+
+.tips-button:active {
+  animation: gradient 140ms;
+  background: #b33b30;
+  color: #fff;
+  box-shadow: none;
+  border-color: #b33b30;
+}
+
+.garden-buttons:active {
+  animation: gradient 140ms;
+  background: #b33b30;
+  color: #fff;
+  box-shadow: none;
+  border-color: #b33b30;
+}
+
+.account-button:active {
+  animation: gradient 140ms;
+  background: #b33b30;
+  color: #fff;
+  box-shadow: none;
+  border-color: #b33b30;
 }
 
 .tips-enter {
@@ -870,6 +916,7 @@ label {
 
 .searcher {
   color: #b33b30;
+  font-weight: normal;
 }
 
 .flip-card-front-contact-insta {
@@ -964,6 +1011,7 @@ label {
 .contact-name {
   color: #b33b30;
   font-size: 32px;
+  font-weight: normal;
 }
 
 .handle {
@@ -998,6 +1046,7 @@ label {
 .amaze-plants {
   color: #b33b30;
   font-size: 28px;
+  font-weight: normal;
 }
 
 .twitter-content {
@@ -1026,4 +1075,67 @@ label {
   position: relative;
   background-color: #e4eed0;
   border-radius: 10px;
+}
+
+.add-plant:active {
+  animation: gradient 140ms;
+  background: #b33b30;
+  color: #fff;
+  box-shadow: none;
+  border-color: #b33b30;
+}
+
+@keyframes gradient {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      #b33b30 0%,
+      green 0%,
+      green 100%
+    );
+  }
+  25% {
+    background: radial-gradient(
+      circle at center,
+      #b33b30 24%,
+      green 25%,
+      green 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle at center,
+      #b33b30 49%,
+      green 50%,
+      green 100%
+    );
+  }
+  75% {
+    background: radial-gradient(
+      circle at center,
+      #b33b30 74%,
+      green 75%,
+      green 100%
+    );
+  }
+  100% {
+    color: green;
+    background: radial-gradient(
+      circle at center,
+      #b33b30 99%,
+      green 100%,
+      green 100%
+    );
+  }
+}
+
+.cart {
+  position: relative;
+  margin-top: 10%;
+  font-size: 30px;
+  color: #b33b30;
+  font-weight: normal;
+}
+.cart > h2 {
+  font-weight: normal;
 }

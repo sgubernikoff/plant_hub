@@ -13,6 +13,7 @@ function MyGarden({
 }) {
   const [popup, setPopup] = useState(false);
   const [areYouSure, setAreYouSure] = useState(false);
+  const [marketplace, setMarketplace] = useState(false);
 
   // console.log(seedlings);
   // console.log(garden);
@@ -24,6 +25,12 @@ function MyGarden({
 
   function toggleSure() {
     setAreYouSure(!areYouSure);
+    setMarketplace(false);
+  }
+
+  function toggleMarket() {
+    setMarketplace(!marketplace);
+    setAreYouSure(false);
   }
 
   function findSeedling(plant) {
@@ -43,6 +50,8 @@ function MyGarden({
         updateGardensOnClearGarden();
       })
     );
+    window.location.reload();
+    // window.scrollTo(0, 0);
   }
 
   const mapGarden =
@@ -120,10 +129,19 @@ function MyGarden({
         <div className="garden-butts">
           {user.gardens[0].plants[0] ? (
             <div>
-              <button className="garden-buttons">Add Garden to Cart</button>
+              <button className="garden-buttons" onClick={toggleMarket}>
+                Add Garden to Cart
+              </button>
               <button className="garden-buttons" onClick={toggleSure}>
                 Clear Garden
               </button>{" "}
+              {marketplace ? (
+                <div>
+                  <h2 className="sure">
+                    The Marketplace will be active in June 2022 - Stay Tuned!
+                  </h2>
+                </div>
+              ) : null}
               {areYouSure ? (
                 <div>
                   <h2 className="sure">
