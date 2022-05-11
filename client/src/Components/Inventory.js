@@ -35,7 +35,7 @@ function Inventory({
     <div id="inventory">
       <h1 className="inv-header">INVENTORY</h1>
       <section>
-        <h3 className="searcher">Search For Your Favorite</h3>
+        <h3 className="searcher">Search For Your Favorite Plant</h3>
         <input
           className="search-bar"
           type="text"

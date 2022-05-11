@@ -38,7 +38,11 @@ function InventoryCard({
         </button>
       ) : (
         <p>
-          Please <a href="/login">LOG IN</a> to add your plant!
+          Please{" "}
+          <a href="/login" className="login-bold">
+            LOG IN
+          </a>{" "}
+          to add your plant!
         </p>
       )}
     </div>

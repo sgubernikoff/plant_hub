@@ -121,7 +121,11 @@ function MyGarden({
       {user ? null : (
         <div>
           <h2 className="please-login">
-            Please <a href="/login">LOG IN</a> to view your garden!
+            Please{" "}
+            <a href="/login" className="login-bold">
+              LOG IN
+            </a>{" "}
+            to view your garden!
           </h2>
         </div>
       )}
