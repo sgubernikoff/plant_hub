@@ -715,14 +715,13 @@ label {
 
 .tips-enter {
   color: #b33b30;
-  cursor: pointer;
-  text-decoration: underline;
   margin-top: -100px;
 }
 
 .flip-card-front-tips {
-  background-image: url("https://st2.depositphotos.com/1000459/9835/i/950/depositphotos_98358268-stock-photo-sunflowers-field-on-sky.jpg");
+  background-image: url("https://www.hdwallpapers.in/download/garden_with_green_grass_and_flowers_in_blue_sky_background_hd_garden-2560x1440.jpg");
   background-size: cover;
+  background-position: bottom;
   color: black;
   border-radius: 10px;
 }
@@ -871,4 +870,160 @@ label {
 
 .searcher {
   color: #b33b30;
+}
+
+.flip-card-front-contact-insta {
+  background-image: url("https://newfiremusic.net/wp-content/uploads/2021/03/IG.png");
+  background-size: cover;
+  background-position: bottom;
+  color: black;
+  border-radius: 10px;
+}
+
+.flip-card-front-contact-linked {
+  background-image: url("https://programadoresbrasil.com.br/wp-content/uploads/2020/09/linkedin-1280x720-1.png");
+  background-size: cover;
+  background-position: bottom;
+  color: black;
+  border-radius: 10px;
+}
+
+.flip-card-front-contact-github {
+  background-image: url("https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/1885/profiles/20400/profileImage/Tn2cD3Wq_400x400.jpg");
+  background-size: cover;
+  background-position: bottom;
+  color: black;
+  border-radius: 10px;
+}
+
+.flip-card-contact {
+  background-color: transparent;
+  width: 320px;
+  height: 320px;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+}
+
+.flip-card-inner-contact {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 10px;
+}
+
+.flip-card-back-contact {
+  background-color: #b33b30;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+  overflow: scroll;
+}
+
+.flip-card-contact:hover .flip-card-inner-contact {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front-contact-insta,
+.flip-card-back-contact {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flip-card-front-contact-linked,
+.flip-card-back-contact {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flip-card-front-contact-github,
+.flip-card-back-contact {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-name {
+  color: #b33b30;
+  font-size: 32px;
+}
+
+.handle {
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: solid;
+}
+
+.center-handle {
+  margin: auto;
+  display: block;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.contact-image {
+  height: 125px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.plant-news {
+  margin-top: -250px;
+}
+
+/* .twitter-embed {
+  height: 100px;
+} */
+
+.amaze-plants {
+  color: #b33b30;
+  font-size: 28px;
+}
+
+.twitter-content {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 800px;
+  height: 575px;
+  margin: auto;
+  opacity: 0.95;
+  border-radius: 10px;
+  border: 2px solid #b33b30;
+  background-image: url("https://i.pinimg.com/736x/65/b0/77/65b07747fcedbc496e6ce7bba0524012--wallpaper-borders-wallpaper-ideas.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.my-twitter-card {
+  border: solid;
+  border-color: #b33b30;
+  margin-bottom: auto;
+  margin-top: auto;
+  text-align: center;
+  width: 650px;
+  height: 500px;
+  position: relative;
+  background-color: #e4eed0;
+  border-radius: 10px;
 }

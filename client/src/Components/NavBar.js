@@ -98,17 +98,6 @@ function NavBar({ isLoggedIn, user }) {
             <img className="cart-img" src={cart}></img>{" "}
           </span>
         </a>
-        {/* <div className="home_points">
-          {isLoggedIn ? (
-            <p>🪙 {user.points}</p>
-          ) : (
-            <img
-              className="logo"
-              src="https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F95c10315-70ae-4f8a-ad38-e3729fc04eae_1764x1764.gif"
-              alt="logo"
-            ></img>
-          )}
-        </div> */}
       </nav>
     </div>
   );

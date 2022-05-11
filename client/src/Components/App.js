@@ -11,6 +11,7 @@ import Login from "../account/Login";
 import Account from "../account/Account";
 import Cart from "../account/Cart";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Timeline } from "react-twitter-widgets";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -192,23 +193,6 @@ function App() {
     setUser({ ...user, gardens: [updatedGarden] });
   }
 
-  function BotanyNews() {
-    useEffect(() => {
-      const anchor = document.createElement("a");
-      anchor.setAttribute("class", "twitter-timeline");
-      anchor.setAttribute("data-theme", "dark");
-      anchor.setAttribute("data-tweet-limit", "unlimited");
-      anchor.setAttribute("data-chrome", "noheader nofooter noborders");
-      anchor.setAttribute("data-height", "800");
-      anchor.setAttribute("data-width", "750");
-      anchor.setAttribute("href", "https://twitter.com/BoxingNewsED");
-      document.getElementsByClassName("twitter-embed")[0].appendChild(anchor);
-      const script = document.createElement("script");
-      script.setAttribute("src", "https://platform.twitter.com/widgets.js");
-      document.getElementsByClassName("twitter-embed")[0].appendChild(script);
-    }, []);
-  }
-
   useEffect(() => {
     getUser();
     getPlants();
@@ -252,7 +236,7 @@ function App() {
               laWeather={laWeather}
               miamiWeather={miamiWeather}
               austinWeather={austinWeather}
-              BotanyNews={BotanyNews}
+              // BotanyNews={BotanyNews}
               plants={plants}
             />
             <Explore garden={garden} user={user} />

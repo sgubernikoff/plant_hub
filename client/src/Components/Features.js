@@ -1,4 +1,8 @@
 import { React, useState, useEffect } from "react";
+import me from "./me.jpg";
+import me2 from "./me2.jpeg";
+import me3 from "./me3.png";
+import PlantNews from "./PlantNews";
 
 function Features({
   weather,
@@ -17,7 +21,6 @@ function Features({
   const [tipsList, setTipsList] = useState(false);
   const [plantOfDay, setPlantOfDay] = useState([]);
 
-  console.log(botanyNews);
   // console.log(plants[getRandomInt(0, 33)].image);
 
   function toggleList() {
@@ -88,6 +91,12 @@ function Features({
   return (
     <div id="features">
       <h1> FEATURES</h1>
+      {toggleTips ? <br></br> : null}
+      {toggleTips ? <br></br> : null}
+      {toggleTips ? (
+        <h2 className="tips-enter">10 Tips To Care for Your Garden</h2>
+      ) : null}
+      {toggleFifth ? <h2 className="contact-name">Sam Gubernikoff</h2> : null}
       {!toggleWeather &&
       !toggleFeed &&
       !toggleTips &&
@@ -142,233 +151,226 @@ function Features({
       !toggleFifth ? (
         <a className="feature-list" onClick={toggle5}>
           {" "}
-          Fifth{" "}
+          Contact{" "}
         </a>
       ) : null}
       {!toggleWeather ? <br></br> : null}
       {!toggleWeather ? <br></br> : null}
 
       {toggleFeed ? (
-        <section className="twitterContainer">
-          <div className="twitter-embed"></div>
-          <button className="weather-button" onClick={toggleClose}>
+        <div className="plant-news">
+          <PlantNews />
+          <button className="tips-button" onClick={toggleClose}>
             Close
           </button>
-        </section>
+        </div>
       ) : null}
 
       {toggleTips ? (
         <div>
-          {!tipsList ? (
-            <h2 className="tips-enter" onClick={toggleList}>
-              10 Tips To Care for Your Garden
-            </h2>
-          ) : null}
-          {tipsList ? (
-            <div className="big-tip">
-              <div className="tips">
-                <div className="tip-scroll">
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">
-                          Check the health of your plants
-                        </h2>
-                      </div>
+          <br></br>
+          <br></br>
+          <div className="big-tip">
+            <div className="tips">
+              <div className="tip-scroll">
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">
+                        Check the Health of Your Plants
+                      </h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Whether you’re transplanting plants from nurseries or
-                          growing your own from seeds, fully inspect your garden
-                          plants to make sure they are pest and rot free.
-                          <br></br>
-                          <br></br>
-                          Bringing in infected or diseased plants can harm the
-                          whole garden.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Whether you’re transplanting plants from nurseries or
+                        growing your own from seeds, fully inspect your garden
+                        plants to make sure they are pest and rot free.
+                        <br></br>
+                        <br></br>
+                        Bringing in infected or diseased plants can harm the
+                        whole garden.
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">Water properly</h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">Water Properly</h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Overwatering can lead to fungi growth, leaf spots, and
-                          unhealthy plants.<br></br>
-                          <br></br> Only water as often as necessary during the
-                          growing season for your specific plant species, and
-                          let the soil dry between waterings to keep from
-                          oversaturating. <br></br>
-                          <br></br>The trick is to keep your garden well-watered
-                          but not soaking, and avoid wetting the foliage.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Overwatering can lead to fungi growth, leaf spots, and
+                        unhealthy plants.<br></br>
+                        <br></br> Only water as often as necessary during the
+                        growing season for your specific plant species, and let
+                        the soil dry between waterings to keep from
+                        oversaturating. <br></br>
+                        <br></br>The trick is to keep your garden well-watered
+                        but not soaking, and avoid wetting the foliage.
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">Treat your soil</h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">Treat Your Soil</h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Soil degrades over time and needs to be refreshed
-                          every so often. <br></br>
-                          <br></br>You can buy new soil from a local garden
-                          center, so make sure to check the quality of your
-                          garden soil and replace when necessary.
-                          <br></br>
-                          <br></br>Adding mulch is also useful for retaining the
-                          soil moisture of your garden.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Soil degrades over time and needs to be refreshed every
+                        so often. <br></br>
+                        <br></br>You can buy new soil from a local garden
+                        center, so make sure to check the quality of your garden
+                        soil and replace when necessary.
+                        <br></br>
+                        <br></br>Adding mulch is also useful for retaining the
+                        soil moisture of your garden.
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">
-                          Clean your gardening tools
-                        </h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">
+                        Clean Off Your Gardening Tools
+                      </h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Garden tools should be cleaned to control disease and
-                          prevent transferring any bacteria or dangerous
-                          elements into your garden. <br></br>
-                          <br></br>In addition to the other methods of garden
-                          care, clean tools can help keep your garden healthy
-                          longer.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Garden tools should be cleaned to control disease and
+                        prevent transferring any bacteria or dangerous elements
+                        into your garden. <br></br>
+                        <br></br>In addition to the other methods of garden
+                        care, clean tools can help keep your garden healthy
+                        longer.
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">Perform plant maintenance</h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">Perform Plant Maintenance</h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Deadhead, prune, and cull your plants as needed.
-                          Deadheading removes old flower blooms to encourage new
-                          growth. <br></br>
-                          <br></br>Pruning is cutting back the branches of your
-                          plants to control growth and make room for more.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Deadhead, prune, and cull your plants as needed.
+                        Deadheading removes old flower blooms to encourage new
+                        growth. <br></br>
+                        <br></br>Pruning is cutting back the branches of your
+                        plants to control growth and make room for more.
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">Destroy the weeds</h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">Destroy the Weeds</h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Weeds are garden killers. <br></br>
-                          <br></br>They can suffocate the roots of your healthy
-                          plants, harbor pests, and become an unsightly
-                          nuisance. <br></br>
-                          <br></br>Weeds take up space and resources that your
-                          plants could be using, so weeding your garden can keep
-                          it healthy and growing.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Weeds are garden killers. <br></br>
+                        <br></br>They can suffocate the roots of your healthy
+                        plants, harbor pests, and become an unsightly nuisance.{" "}
+                        <br></br>
+                        <br></br>Weeds take up space and resources that your
+                        plants could be using, so weeding your garden can keep
+                        it healthy and growing.
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">Protect from animals</h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">Protect from Animals</h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Set up a barrier around your garden bed, like a wire
-                          fence, to keep herbivores, critters, and other garden
-                          pests from destroying your plants. <br></br>
-                          <br></br>Wire fencing keeps your garden safe, while
-                          also keeping it visible and exposed to the sun
-                          (traditional fencing can sometimes block direct
-                          sunlight).
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Set up a barrier around your garden bed, like a wire
+                        fence, to keep herbivores, critters, and other garden
+                        pests from destroying your plants. <br></br>
+                        <br></br>Wire fencing keeps your garden safe, while also
+                        keeping it visible and exposed to the sun (traditional
+                        fencing can sometimes block direct sunlight).
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">Stake your plants</h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">Stake Your Plants</h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Staking involves fixing sticks into the ground and
-                          tying your flower stems or other garden crops to them
-                          with cloth or thread (you can also use a trellis).
-                          <br></br>
-                          <br></br>
-                          Staking your plants—like cucumber, pepper, or tomato
-                          plants—reinforces the stems and keeps them from
-                          bending or breaking, keeping them upright and healthy.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Staking involves fixing sticks into the ground and tying
+                        your flower stems or other garden crops to them with
+                        cloth or thread (you can also use a trellis).
+                        <br></br>
+                        <br></br>
+                        Staking your plants—like cucumber, pepper, or tomato
+                        plants—reinforces the stems and keeps them from bending
+                        or breaking, keeping them upright and healthy.
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">Companion plants</h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">Companion Plants</h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Companion planting, or intercropping, is when you
-                          plant a variety of different crops together to
-                          increase growth productivity, provide pollinators,
-                          ward off pests, and control the habitat for beneficial
-                          insects.<br></br>
-                          <br></br> Intercropping is a great way to keep your
-                          garden and flower beds thriving by surrounding them
-                          with the right plants that will enable their
-                          successful growth.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Companion planting, or intercropping, is when you plant
+                        a variety of different crops together to increase growth
+                        productivity, provide pollinators, ward off pests, and
+                        control the habitat for beneficial insects.<br></br>
+                        <br></br> Intercropping is a great way to keep your
+                        garden and flower beds thriving by surrounding them with
+                        the right plants that will enable their successful
+                        growth.
+                      </p>
                     </div>
                   </div>
-                  <div className="flip-card-tips">
-                    <div className="flip-card-inner-tips">
-                      <div className="flip-card-front-tips">
-                        <h2 className="tips-text">Try raised beds</h2>
-                      </div>
+                </div>
+                <div className="flip-card-tips">
+                  <div className="flip-card-inner-tips">
+                    <div className="flip-card-front-tips">
+                      <h2 className="tips-text">Try Raised Beds</h2>
+                    </div>
 
-                      <div className="flip-card-back-tips">
-                        <p className="features-h2">
-                          Adding raised beds (or garden containers) to your
-                          garden plans can significantly increase your plant’s
-                          longevity. <br></br>
-                          <br></br>Raised beds are great if you want to start
-                          small, or plant a variety of sections. <br></br>
-                          <br></br>Raised beds come with a barrier, provide
-                          proper drainage, and can help keep your garden bed
-                          safe from pathway weeds and other menaces.
-                        </p>
-                      </div>
+                    <div className="flip-card-back-tips">
+                      <p className="features-h2">
+                        Adding raised beds (or garden containers) to your garden
+                        plans can significantly increase your plant’s longevity.{" "}
+                        <br></br>
+                        <br></br>Raised beds are great if you want to start
+                        small, or plant a variety of sections. <br></br>
+                        <br></br>Raised beds come with a barrier, provide proper
+                        drainage, and can help keep your garden bed safe from
+                        pathway weeds and other menaces.
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          ) : null}
+          </div>
           <button className="tips-button" onClick={toggleClose}>
             Close
           </button>
@@ -394,7 +396,75 @@ function Features({
 
       {toggleFifth ? (
         <div>
-          Fifth
+          <div className="big-tip">
+            <div className="tips">
+              <div className="tip-scroll">
+                <div className="flip-card-contact">
+                  <div className="flip-card-inner-contact">
+                    <div className="flip-card-front-contact-insta"></div>
+
+                    <div className="flip-card-back-contact">
+                      <h2 className="features-h2">Instagram</h2>
+                      <div className="center-handle">
+                        <a
+                          target="_blank"
+                          className="handle"
+                          href="https://www.instagram.com/samgubernikoff/"
+                        >
+                          @sam-gubernikoff
+                        </a>
+                        <div>
+                          <img className="contact-image" src={me}></img>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flip-card-contact">
+                  <div className="flip-card-inner-contact">
+                    <div className="flip-card-front-contact-linked"></div>
+
+                    <div className="flip-card-back-contact">
+                      <h2 className="features-h2">LinkedIn</h2>
+                      <div className="center-handle">
+                        <a
+                          target="_blank"
+                          className="handle"
+                          href="https://www.linkedin.com/in/sam-gubernikoff-677145149/"
+                        >
+                          Sam Gubernikoff
+                        </a>
+                        <div>
+                          <img className="contact-image" src={me2}></img>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flip-card-contact">
+                  <div className="flip-card-inner-contact">
+                    <div className="flip-card-front-contact-github"></div>
+
+                    <div className="flip-card-back-contact">
+                      <h2 className="features-h2">GitHub</h2>
+                      <div className="center-handle">
+                        <a
+                          target="_blank"
+                          className="handle"
+                          href="https://github.com/sgubernikoff"
+                        >
+                          @sgubernikoff
+                        </a>
+                        <div>
+                          <img className="contact-image" src={me3}></img>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <button className="weather-button" onClick={toggleClose}>
             Close
           </button>
