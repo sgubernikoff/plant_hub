@@ -653,6 +653,14 @@ label {
   margin-top: 10px;
 }
 
+.remove:active {
+  animation: gradient 140ms;
+  background: #b33b30;
+  color: #fff;
+  box-shadow: none;
+  border-color: #b33b30;
+}
+
 .small-garden-pic {
   width: 25px;
   margin-left: 10px;
